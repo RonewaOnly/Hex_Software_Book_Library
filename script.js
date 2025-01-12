@@ -405,3 +405,197 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const books = [
+      { id: 1, title: "The Great Gatsby", category: "Fiction" },
+      { id: 2, title: "A Brief History of Time", category: "Science" },
+      { id: 3, title: "The Art of War", category: "History" },
+      { id: 4, title: "The Alchemist", category: "Fiction" },
+      { id: 5, title: "The Selfish Gene", category: "Science" },
+      { id: 6, title: "Sapiens", category: "History" },
+    ];
+  
+    const cart = [];
+    const searchInput = document.getElementById("search");
+    const categoriesSection = document.querySelector(".categories-grid");
+    const itemCountSpan = document.querySelector(".cart-count");
+  
+    // Populate Categories
+    const populateCategories = () => {
+      const categories = [...new Set(books.map((book) => book.category))];
+      categoriesSection.innerHTML = categories
+        .map(
+          (category) => `
+          <div class="category-card">
+            <h3>${category}</h3>
+            <button class="btn btn-primary" onclick="filterBooks('${category}')">Explore</button>
+          </div>`
+        )
+        .join("");
+    };
+  
+    // Render Products
+    const renderProducts = (filteredBooks) => {
+      const productsSection = document.querySelector("#products-section");
+      if (!productsSection) {
+        const mainContent = document.getElementById("main-content");
+        const section = document.createElement("section");
+        section.id = "products-section";
+        section.classList.add("products-section", "container");
+        mainContent.appendChild(section);
+      }
+      const productsHTML = filteredBooks
+        .map(
+          (book) => `
+          <div class="product-card">
+            <h4>${book.title}</h4>
+            <p>${book.category}</p>
+            <button class="btn btn-secondary" onclick="addToCart(${book.id})">Add to Cart</button>
+          </div>`
+        )
+        .join("");
+  
+      document.getElementById("products-section").innerHTML = `
+        <h2>Available Books</h2>
+        <div class="products-grid">${productsHTML}</div>
+      `;
+    };
+  
+    // Search Books
+    const searchBooks = (query) => {
+      const filteredBooks = books.filter(
+        (book) =>
+          book.title.toLowerCase().includes(query.toLowerCase()) ||
+          book.category.toLowerCase().includes(query.toLowerCase())
+      );
+      renderProducts(filteredBooks);
+    };
+  
+    // Filter Books by Category
+    window.filterBooks = (category) => {
+      const filteredBooks = books.filter((book) => book.category === category);
+      renderProducts(filteredBooks);
+    };
+  
+    // Add to Cart
+    window.addToCart = (bookId) => {
+      const book = books.find((b) => b.id === bookId);
+      if (!cart.includes(book)) {
+        cart.push(book);
+        updateCartCount();
+      }
+    };
+  
+    // Update Cart Count
+    const updateCartCount = () => {
+      itemCountSpan.textContent = cart.length;
+    };
+  
+    // Event Listeners
+    searchInput.addEventListener("input", (e) => {
+      searchBooks(e.target.value);
+    });
+  
+    // Initial Render
+    populateCategories();
+    renderProducts(books);
+  });
+  
+
+
+  // Define global state for the cart
+let cart = [];
+
+// Select necessary DOM elements
+const productSection = document.querySelector(".product-section");
+const cartSection = document.querySelector(".cart-section");
+const cartCount = document.querySelector(".cart-count");
+const cartItemsContainer = document.querySelector(".cart-items");
+
+// Helper function to update the cart count
+function updateCartCount() {
+    cartCount.textContent = cart.length;
+}
+
+// Function to render the cart items
+function renderCartItems() {
+    cartItemsContainer.innerHTML = ""; // Clear previous cart items
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        return;
+    }
+
+    cart.forEach((item, index) => {
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+        cartItem.innerHTML = `
+            <div class="cart-item-details">
+                <p class="cart-item-name">${item.name}</p>
+                <p class="cart-item-price">$${item.price.toFixed(2)}</p>
+                <div class="cart-item-quantity">
+                    <button class="quantity-btn decrease" data-index="${index}">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="quantity-btn increase" data-index="${index}">+</button>
+                </div>
+            </div>
+            <button class="remove-btn" data-index="${index}">Remove</button>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+    });
+}
+
+// Function to handle adding a product to the cart
+function addToCart(product) {
+    const existingProductIndex = cart.findIndex((item) => item.id === product.id);
+
+    if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += 1; // Increment quantity if the product already exists
+    } else {
+        cart.push({ ...product, quantity: 1 }); // Add new product to the cart
+    }
+
+    updateCartCount();
+    renderCartItems();
+}
+
+// Function to handle cart actions (remove, increase, decrease)
+function handleCartActions(event) {
+    const target = event.target;
+
+    if (target.classList.contains("remove-btn")) {
+        const index = target.dataset.index;
+        cart.splice(index, 1); // Remove item from cart
+    } else if (target.classList.contains("increase")) {
+        const index = target.dataset.index;
+        cart[index].quantity += 1; // Increase quantity
+    } else if (target.classList.contains("decrease")) {
+        const index = target.dataset.index;
+        if (cart[index].quantity > 1) {
+            cart[index].quantity -= 1; // Decrease quantity
+        } else {
+            cart.splice(index, 1); // Remove item if quantity is 1
+        }
+    }
+
+    updateCartCount();
+    renderCartItems();
+}
+
+// Event listeners
+productSection.addEventListener("click", (event) => {
+    if (event.target.classList.contains("add-to-cart")) {
+        const productCard = event.target.closest(".product-card");
+        const product = {
+            id: productCard.dataset.id,
+            name: productCard.querySelector(".product-name").textContent,
+            price: parseFloat(productCard.querySelector(".product-price").textContent.replace("$", "")),
+        };
+        addToCart(product);
+    }
+});
+
+cartItemsContainer.addEventListener("click", handleCartActions);
+
+// Initial render of cart items
+renderCartItems();
