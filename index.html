@@ -3,57 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ME too Library</title>
+    <title>ME Too Library</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap">
     <script src="https://kit.fontawesome.com/353171f722.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="#">ME too Library</a>
+            <a href="#">ME Too Library</a>
         </div>
         <nav>
             <ul>
-                <li><a href="#Hero_page" target="_blank" rel="noopener noreferrer">Home</a></li>
-                <li><a href="#category_page">Categories</a></li>
-                <li><a href="#about_page">About</a></li>
+                <li><a href="#hero-page">Home</a></li>
+                <li><a href="#categories-page">Categories</a></li>
+                <li><a href="#about-page">About</a></li>
             </ul>
         </nav>
         <div class="search-box">
-            <input type="text" placeholder="Search for books">
-            <button type="button" title="btn" class="btn btn-search"><i class="fas fa-search"></i></button>
+            <label for="search" class="visually-hidden">Search for books</label>
+            <input type="text" id="search" placeholder="Search for books" aria-label="Search for books">
+            <button type="button" title="Search" class="btn btn-search">
+                <i class="fas fa-search"></i>
+            </button>
         </div>
-        <div class="left-box">
-            <a href="#" class="btn">Sign Up</a>
-            <a href="#" class="btn">Login</a>
-            <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+        <div class="user-actions">
+            <a href="#">Sign Up</a>
+            <a href="#">Login</a>
+            <a href="#" aria-label="Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="item-count" aria-hidden="true">0</span>
+            </a>
         </div>
     </header>
     <main>
-        <section id="Hero_page">
+        <section id="hero-page" class="hero-section">
             <div class="hero-text">
+                <h1>Welcome to ME Too Library</h1>
+                <p>Your gateway to free learning and thousands of books.</p>
                 <a href="#" class="btn hero-btn">Read Now</a>
             </div>
         </section>
-        <section id="category_page">
-
-
-        </section>
-
-        <section id="about_page">
-            <div class="about-text">
-                <h2>About Us</h2>
-                <p>ME too Library is a free online library that provides access to thousands of books. Our mission is to help people learn for free.</p>
+        <section id="categories-page" class="categories-section">
+            <h2>Categories</h2>
+            <p>Explore a variety of genres and topics tailored to your interests.</p>
+            <div class="card_body">
+                <div class="card-img">
+                    <img src="" alt="" srcset="">
+                </div>
+                <p class="card-title"></p>
             </div>
         </section>
-
-
+        <section id="about-page" class="about-section">
+            <h2>About Us</h2>
+            <p>
+                ME Too Library is a free online platform providing access to thousands of books.
+                Our mission is to empower learning and make knowledge accessible to everyone.
+            </p>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2025 ME too Library</p>
+        <p>&copy; 2025 ME Too Library. All rights reserved.</p>
     </footer>
-    <script src="./script.js"></script>
 </body>
 </html>
