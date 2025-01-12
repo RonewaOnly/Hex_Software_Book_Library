@@ -614,6 +614,238 @@ input.invalid:focus {
     --category-color-dark: #FF5C8A;
 }
 
+/* About Section Styles */
+.about-section {
+    padding: 5rem 0;
+    background-color: var(--clr-neutral-100);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.about-card {
+    background-color: var(--clr-neutral-200);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.about-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.about-card-header i {
+    font-size: 2rem;
+    color: var(--clr-primary-400);
+}
+
+.subsection-title {
+    font-size: var(--fs-600);
+    text-align: center;
+    margin: 4rem 0 2rem;
+}
+
+/* Features Section */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--clr-neutral-200);
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: var(--clr-primary-400);
+    margin-bottom: 1rem;
+}
+
+.feature-item h4 {
+    margin-bottom: 1rem;
+    color: var(--clr-neutral-900);
+}
+
+/* How It Works */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.step {
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-primary-400);
+    color: var(--clr-neutral-100);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 1rem;
+    font-weight: 700;
+}
+
+/* Statistics Section */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    background-color: var(--clr-primary-400);
+    padding: 3rem;
+    border-radius: 1rem;
+    color: var(--clr-neutral-100);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: var(--fs-800);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: var(--fs-400);
+    opacity: 0.9;
+}
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    object-fit: cover;
+}
+
+.member-role {
+    color: var(--clr-primary-400);
+    font-weight: 500;
+}
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.contact-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--clr-neutral-200);
+    border-radius: 1rem;
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: var(--clr-primary-400);
+    margin-bottom: 1rem;
+}
+
+/* Social Media Section */
+.social-section {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--clr-neutral-200);
+    color: var(--clr-primary-400);
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--clr-primary-400);
+    color: var(--clr-neutral-100);
+    transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 3rem 0;
+    }
+
+    .stats-grid {
+        padding: 2rem;
+    }
+
+    .stat-number {
+        font-size: var(--fs-700);
+    }
+
+    .team-grid,
+    .contact-grid {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-card,
+    .feature-item,
+    .contact-item {
+        padding: 1.5rem;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .categories-grid {

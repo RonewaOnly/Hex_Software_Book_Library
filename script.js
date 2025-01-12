@@ -84,7 +84,7 @@ function openModal(type = 'login') {
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     switchForm(type);
-    
+
     // Close modal when clicking outside
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
@@ -114,10 +114,10 @@ function handleEscapeKey(e) {
 function switchForm(type) {
     modalTitle.textContent = type === 'login' ? 'Login to Your Account' : 'Create an Account';
     modalContent.innerHTML = type === 'login' ? loginTemplate : signupTemplate;
-    
+
     // Reinitialize password toggle functionality
     initializePasswordToggles();
-    
+
     // Initialize form validation
     const form = document.getElementById('authForm');
     initializeFormValidation(form, type);
@@ -127,10 +127,10 @@ function switchForm(type) {
 function initializePasswordToggles() {
     const toggleButtons = document.querySelectorAll('.toggle-password');
     toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const input = this.parentElement.querySelector('input');
             const icon = this.querySelector('i');
-            
+
             if (input.type === 'password') {
                 input.type = 'text';
                 icon.classList.remove('fa-eye');
@@ -146,20 +146,20 @@ function initializePasswordToggles() {
 
 // Form validation
 function initializeFormValidation(form, type) {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         if (validateForm(form, type)) {
             // Collect form data
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
-            
+
             // Simulate API call
             console.log(`${type} submission:`, data);
-            
+
             // Show success message
             showMessage('success', `${type === 'login' ? 'Login' : 'Registration'} successful!`);
-            
+
             // Close modal after short delay
             setTimeout(closeModal, 2000);
         }
@@ -167,7 +167,7 @@ function initializeFormValidation(form, type) {
 
     // Real-time validation
     form.querySelectorAll('input').forEach(input => {
-        input.addEventListener('input', function() {
+        input.addEventListener('input', function () {
             validateField(this);
         });
     });
@@ -250,9 +250,9 @@ function showMessage(type, message) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message message-${type}`;
     messageDiv.textContent = message;
-    
+
     modalContent.insertBefore(messageDiv, modalContent.firstChild);
-    
+
     setTimeout(() => {
         messageDiv.remove();
     }, 3000);
@@ -262,7 +262,7 @@ function showMessage(type, message) {
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize close button
     modalClose.addEventListener('click', closeModal);
-    
+
     // Initialize form if modal is open
     if (modal.getAttribute('aria-hidden') === 'false') {
         initializePasswordToggles();
@@ -342,11 +342,11 @@ function formatNumber(num) {
 // Function to create category cards
 function createCategoryCards() {
     const categoriesGrid = document.querySelector('.categories-grid');
-    
+
     categories.forEach(category => {
         const card = document.createElement('article');
         card.className = `category-card ${category.color}`;
-        
+
         card.innerHTML = `
             <img src="${category.image}" 
                  alt="${category.title} category" 
@@ -372,7 +372,7 @@ function createCategoryCards() {
                Explore ${category.title}
             </a>
         `;
-        
+
         categoriesGrid.appendChild(card);
     });
 }

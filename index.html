@@ -1,140 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ME Too Library</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap">
-    <script src="https://kit.fontawesome.com/353171f722.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/353171f722.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <header class="primary-header">
-        <div class="container header-wrapper">
-            <div class="logo">
-                <a href="/" class="logo-link">
-                    <span class="logo-text">ME Too Library</span>
-                </a>
-            </div>
-
-            <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-                <span class="visually-hidden">Menu</span>
-                <span class="hamburger"></span>
-            </button>
-
-            <nav class="primary-navigation" id="primary-navigation">
-                <ul class="nav-list">
-                    <li><a href="#hero-section" class="nav-link">Home</a></li>
-                    <li><a href="#categories-section" class="nav-link">Categories</a></li>
-                    <li><a href="#about-section" class="nav-link">About</a></li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-                <form class="search-form" role="search">
-                    <div class="search-wrapper">
-                        <label for="search" class="visually-hidden">Search for books</label>
-                        <input type="search" 
-                               id="search" 
-                               class="search-input" 
-                               placeholder="Search for books..."
-                               aria-label="Search for books">
-                        <button type="submit" class="btn btn-search" aria-label="Submit search">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </form>
-
-                <div class="user-actions">
-                    <button class="btn btn-secondary" onclick="openModal('signup')" type="button">Sign Up</button>
-                    <button class="btn btn-primary" onclick="openModal('login')" type="button">Login</button>
-                    <button class="btn btn-cart" aria-label="Shopping cart" type="button">
-                        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-                        <span class="cart-count" aria-label="0 items in cart">0</span>
-                    </button>
-                </div>
-            </div>
+      <div class="container header-wrapper">
+        <div class="logo">
+          <a href="/" class="logo-link">
+            <span class="logo-text">ME Too Library</span>
+          </a>
         </div>
+
+        <button
+          class="mobile-nav-toggle"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+        >
+          <span class="visually-hidden">Menu</span>
+          <span class="hamburger"></span>
+        </button>
+
+        <nav class="primary-navigation" id="primary-navigation">
+          <ul class="nav-list">
+            <li><a href="#hero-section" class="nav-link">Home</a></li>
+            <li>
+              <a href="#categories-section" class="nav-link">Categories</a>
+            </li>
+            <li><a href="#about-section" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <form class="search-form" role="search">
+            <div class="search-wrapper">
+              <label for="search" class="visually-hidden"
+                >Search for books</label
+              >
+              <input
+                type="search"
+                id="search"
+                class="search-input"
+                placeholder="Search for books..."
+                aria-label="Search for books"
+              />
+              <button
+                type="submit"
+                class="btn btn-search"
+                aria-label="Submit search"
+              >
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+
+          <div class="user-actions">
+            <button
+              class="btn btn-secondary"
+              onclick="openModal('signup')"
+              type="button"
+            >
+              Sign Up
+            </button>
+            <button
+              class="btn btn-primary"
+              onclick="openModal('login')"
+              type="button"
+            >
+              Login
+            </button>
+            <button
+              class="btn btn-cart"
+              aria-label="Shopping cart"
+              type="button"
+            >
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+              <span class="cart-count" aria-label="0 items in cart">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main id="main-content">
-        <section id="hero-section" class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Welcome to ME Too Library</h1>
-                    <p class="hero-description">Your gateway to free learning and thousands of books.</p>
-                    <a href="#categories-section" class="btn btn-cta">Start Reading Now</a>
-                </div>
-            </div>
-        </section>
+      <section id="hero-section" class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Welcome to ME Too Library</h1>
+            <p class="hero-description">
+              Your gateway to free learning and thousands of books.
+            </p>
+            <a href="#categories-section" class="btn btn-cta"
+              >Start Reading Now</a
+            >
+          </div>
+        </div>
+      </section>
 
-        <section id="categories-section" class="categories-section">
-            <div class="container">
-                <h2 class="section-title">Browse Categories</h2>
-                <p class="section-description">Explore a variety of genres and topics tailored to your interests.</p>
-                
-                <div class="categories-grid">
-                    <!-- Category cards will be dynamically populated -->
-                </div>
-            </div>
-        </section>
+      <section id="categories-section" class="categories-section">
+        <div class="container">
+          <h2 class="section-title">Browse Categories</h2>
+          <p class="section-description">
+            Explore a variety of genres and topics tailored to your interests.
+          </p>
 
-        <section id="about-section" class="about-section">
-            <div class="container">
-                <h2 class="section-title">About Us</h2>
-                <div class="about-content">
-                    <p>ME Too Library is a free online platform providing access to thousands of books.
-                       Our mission is to empower learning and make knowledge accessible to everyone.</p>
-                </div>
+          <div class="categories-grid">
+            <!-- Category cards will be dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <section id="about-section" class="about-section">
+        <div class="container">
+          <h2 class="section-title">About Us</h2>
+          <div class="about-content">
+            <p>
+              ME Too Library is a free online platform providing access to
+              thousands of books. Our mission is to empower learning and make
+              knowledge accessible to everyone.
+            </p>
+          </div>
+
+          <!-- Mission and Vision -->
+          <div class="about-grid">
+            <div class="about-card">
+              <div class="about-card-header">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+              </div>
+              <p>
+                To democratize knowledge by providing free access to quality
+                educational resources, fostering a global community of lifelong
+                learners, and breaking down barriers to education.
+              </p>
             </div>
-        </section>
+
+            <div class="about-card">
+              <div class="about-card-header">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+              </div>
+              <p>
+                To create a world where quality education is accessible to
+                everyone, regardless of their geographical location or economic
+                status.
+              </p>
+            </div>
+          </div>
+
+          <!-- Key Features -->
+          <div class="features-section">
+            <h3 class="subsection-title">What We Offer</h3>
+            <div class="features-grid">
+              <div class="feature-item">
+                <i class="fas fa-book-open"></i>
+                <h4>Extensive Collection</h4>
+                <p>
+                  Access to over 100,000 digital books, journals, and
+                  educational materials across diverse subjects.
+                </p>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-laptop"></i>
+                <h4>Digital Access</h4>
+                <p>
+                  24/7 online access to resources through our user-friendly
+                  platform, compatible with all devices.
+                </p>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-users"></i>
+                <h4>Community Learning</h4>
+                <p>
+                  Join reading groups, participate in discussions, and connect
+                  with fellow learners worldwide.
+                </p>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-certificate"></i>
+                <h4>Quality Content</h4>
+                <p>
+                  Carefully curated collection with verified sources and
+                  peer-reviewed materials.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- How It Works -->
+          <div class="how-it-works">
+            <h3 class="subsection-title">How It Works</h3>
+            <div class="steps-container">
+              <div class="step">
+                <div class="step-number">1</div>
+                <h4>Sign Up</h4>
+                <p>
+                  Create your free account to get started with our digital
+                  library.
+                </p>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <h4>Browse & Select</h4>
+                <p>
+                  Explore our vast collection and choose from various
+                  categories.
+                </p>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <h4>Read & Learn</h4>
+                <p>Access materials online or download for offline reading.</p>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <h4>Engage & Share</h4>
+                <p>
+                  Participate in discussions and share insights with the
+                  community.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Statistics -->
+          <div class="stats-section">
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-number">100K+</span>
+                <span class="stat-label">Digital Books</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Categories</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">1M+</span>
+                <span class="stat-label">Active Users</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">190+</span>
+                <span class="stat-label">Countries</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team -->
+          <div class="team-section">
+            <h3 class="subsection-title">Our Team</h3>
+            <div class="team-grid">
+              <div class="team-member">
+                <img
+                  src="/api/placeholder/150/150"
+                  alt="Sarah Johnson"
+                  class="member-image"
+                />
+                <h4>Sarah Johnson</h4>
+                <p class="member-role">Founder & CEO</p>
+              </div>
+              <div class="team-member">
+                <img
+                  src="/api/placeholder/150/150"
+                  alt="Michael Chen"
+                  class="member-image"
+                />
+                <h4>Michael Chen</h4>
+                <p class="member-role">Head of Content</p>
+              </div>
+              <div class="team-member">
+                <img
+                  src="/api/placeholder/150/150"
+                  alt="Emma Davis"
+                  class="member-image"
+                />
+                <h4>Emma Davis</h4>
+                <p class="member-role">Technical Director</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-section">
+            <h3 class="subsection-title">Get in Touch</h3>
+            <div class="contact-grid">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h4>Email</h4>
+                <p>support@metoolibrary.com</p>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <h4>Phone</h4>
+                <p>+1 (555) 123-4567</p>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-location-dot"></i>
+                <h4>Address</h4>
+                <p>123 Library Street<br />San Francisco, CA 94105</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media Links -->
+          <div class="social-section">
+            <h3 class="subsection-title">Connect With Us</h3>
+            <div class="social-links">
+              <a
+                href="#"
+                class="social-link"
+                aria-label="Follow us on Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Follow us on Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="social-link"
+                aria-label="Follow us on Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="social-link"
+                aria-label="Follow us on LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <div class="modal" id="authModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-        <div class="modal-content">
-            <header class="modal-header">
-                <h2 id="modalTitle">Login to Your Account</h2>
-                <button class="modal-close" aria-label="Close modal" type="button">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
-            </header>
-            
-            <div class="modal-body">
-                <form id="authForm" class="auth-form">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required 
-                               autocomplete="username">
-                    </div>
+    <div
+      class="modal"
+      id="authModal"
+      role="dialog"
+      aria-labelledby="modalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-content">
+        <header class="modal-header">
+          <h2 id="modalTitle">Login to Your Account</h2>
+          <button class="modal-close" aria-label="Close modal" type="button">
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </header>
 
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <div class="password-input">
-                            <input type="password" id="password" name="password" required
-                                   autocomplete="current-password">
-                            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
-                                <i class="fas fa-eye" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-full">Login</button>
-                </form>
-                
-                <p class="auth-switch">Don't have an account? <button type="button" class="btn-link">Sign Up</button></p>
+        <div class="modal-body">
+          <form id="authForm" class="auth-form">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                required
+                autocomplete="username"
+              />
             </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="password-input">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                  autocomplete="current-password"
+                />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  aria-label="Toggle password visibility"
+                >
+                  <i class="fas fa-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              Login
+            </button>
+          </form>
+
+          <p class="auth-switch">
+            Don't have an account?
+            <button type="button" class="btn-link">Sign Up</button>
+          </p>
         </div>
+      </div>
     </div>
 
     <footer class="primary-footer">
-        <div class="container">
-            <p class="copyright">&copy; 2025 ME Too Library. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p class="copyright">
+          &copy; 2025 ME Too Library. All rights reserved.
+        </p>
+      </div>
     </footer>
 
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
